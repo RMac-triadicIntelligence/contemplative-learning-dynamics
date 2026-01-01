@@ -1,0 +1,10 @@
+import numpy as np
+from src.triadic_model import simulate
+
+def test_runs_smoke():
+    t = np.linspace(0, 10, 50)
+    sol_without, sol_with, idx, y0, y_nudge = simulate(t)
+    assert sol_without.shape[0] == t.shape[0]
+    assert sol_with.shape[0] == t.shape[0]
+    assert sol_without.shape[1] == 4
+    assert sol_with.shape[1] == 4
